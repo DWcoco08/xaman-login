@@ -20,6 +20,12 @@ app.use(session({
 
 app.use('/', routes);
 
-app.listen(config.port, () => {
-  console.log(`NFT Marketplace: http://localhost:${config.port}`);
-});
+// For local development
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(config.port, () => {
+    console.log(`NFT Marketplace: http://localhost:${config.port}`);
+  });
+}
+
+// Export for Vercel serverless
+module.exports = app;
