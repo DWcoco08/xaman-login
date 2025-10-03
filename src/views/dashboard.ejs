@@ -182,6 +182,79 @@
         </div>
     </section>
 
+    <!-- NFT Detail Modal -->
+    <div id="nftModal" class="nft-modal hidden">
+        <div class="nft-modal-content">
+            <button class="nft-modal-close" id="closeNftModal">&times;</button>
+
+            <div class="nft-modal-grid">
+                <!-- Left: Image -->
+                <div class="nft-modal-image">
+                    <img id="modalImage" src="" alt="NFT">
+                    <div class="nft-modal-badge" id="modalBadge">Art</div>
+                </div>
+
+                <!-- Right: Details -->
+                <div class="nft-modal-details">
+                    <h2 id="modalTitle">NFT Title</h2>
+                    <p class="modal-creator">Created by <span id="modalCreator">@artist</span></p>
+
+                    <div class="modal-description">
+                        <h3>Description</h3>
+                        <p id="modalDescription">This is a unique digital artwork minted on the XRP Ledger. Each piece is one-of-a-kind and comes with full ownership rights.</p>
+                    </div>
+
+                    <div class="modal-properties">
+                        <h3>Properties</h3>
+                        <div class="property-grid">
+                            <div class="property-item">
+                                <span class="property-label">Token ID</span>
+                                <span class="property-value">#12345</span>
+                            </div>
+                            <div class="property-item">
+                                <span class="property-label">Contract</span>
+                                <span class="property-value">XRPL NFT</span>
+                            </div>
+                            <div class="property-item">
+                                <span class="property-label">Blockchain</span>
+                                <span class="property-value">XRP Ledger</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-price-section">
+                        <div class="modal-current-price">
+                            <span class="price-label">Current Price</span>
+                            <div class="price-amount">
+                                <span id="modalPrice">250 XRP</span>
+                                <span class="price-usd">≈ $125.00 USD</span>
+                            </div>
+                        </div>
+
+                        <div class="modal-actions">
+                            <button class="btn-modal-buy" id="modalBuyBtn">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 5m4-5l2 5m0 0h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Buy Now
+                            </button>
+                            <button class="btn-modal-offer">Make Offer</button>
+                        </div>
+                    </div>
+
+                    <div class="modal-seller-info">
+                        <div class="seller-avatar">👤</div>
+                        <div class="seller-details">
+                            <span class="seller-label">Seller</span>
+                            <span class="seller-address">rXXX...XXXX</span>
+                        </div>
+                        <button class="btn-seller-view">View Profile</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="/js/toast.js"></script>
     <script src="/js/marketplace.js"></script>
     <script>
