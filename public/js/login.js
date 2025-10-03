@@ -1,5 +1,4 @@
 let currentPayloadUuid = null;
-let socket = io();
 
 const connectBtn = document.getElementById('connectBtn');
 const qrModal = document.getElementById('qrModal');
@@ -12,19 +11,12 @@ qrModal.addEventListener('click', (e) => {
     if (e.target === qrModal) closeQRModal();
 });
 
-socket.on('connect', () => {
-    toast.info('Connected to server');
-});
-
-socket.on('disconnect', () => {
-    toast.warning('Disconnected from server');
-});
-
 async function initiateLogin() {
     try {
         connectBtn.disabled = true;
         connectBtn.textContent = 'Connecting...';
 
+        // Step 1: Create payload and get QR code
         const response = await fetch('/api/auth/login', { method: 'POST' });
         const result = await response.json();
 
@@ -34,26 +26,27 @@ async function initiateLogin() {
             qrModal.classList.remove('hidden');
             toast.success('QR Code generated - Scan with Xaman app');
 
-            socket.on(`payload-${currentPayloadUuid}`, async (data) => {
-                if (data.signed) {
-                    toast.info('Verifying signature...');
-                    const verifyRes = await fetch(`/api/auth/verify/${currentPayloadUuid}`, { method: 'POST' });
-                    const verifyData = await verifyRes.json();
+            // Step 2: Wait for user to sign (backend will wait for WebSocket)
+            toast.info('Waiting for signature...');
+            const verifyRes = await fetch(`/api/auth/verify/${currentPayloadUuid}`, { method: 'POST' });
+            const verifyData = await verifyRes.json();
 
-                    if (verifyData.success && verifyData.signed) {
-                        toast.success('Wallet connected successfully!');
-                        setTimeout(() => window.location.href = '/dashboard', 1000);
-                    }
-                } else if (data.expired) {
-                    toast.error('QR code expired');
-                    closeQRModal();
-                }
-            });
+            if (verifyData.success && verifyData.signed) {
+                toast.success('Wallet connected successfully!');
+                setTimeout(() => window.location.href = '/dashboard', 1000);
+            } else if (verifyData.expired) {
+                toast.error('QR code expired');
+                closeQRModal();
+            } else {
+                toast.error('Sign request rejected');
+                closeQRModal();
+            }
         } else {
             toast.error(result.message || 'Failed to generate QR code');
         }
     } catch (error) {
         toast.error('Connection failed - Please try again');
+        closeQRModal();
     } finally {
         connectBtn.disabled = false;
         connectBtn.textContent = 'Connect Wallet';
@@ -61,9 +54,6 @@ async function initiateLogin() {
 }
 
 function closeQRModal() {
-    if (currentPayloadUuid) {
-        socket.off(`payload-${currentPayloadUuid}`);
-        currentPayloadUuid = null;
-    }
+    currentPayloadUuid = null;
     qrModal.classList.add('hidden');
 }

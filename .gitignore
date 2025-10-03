@@ -3,3 +3,5 @@ node_modules/
 .DS_Store
 *.log
 .claude/
+README-FLOW.md
+README-SEQUENCE.md
