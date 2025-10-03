@@ -29,7 +29,7 @@ async function verifyPayload(req, res) {
     const result = await xummService.getPayloadResult(uuid);
 
     if (result.signed && result.userAccount) {
-      req.session.user = { account: result.userAccount, connectedAt: new Date() };
+      req.session.user = { account: result.userAccount };
       req.session.save(() => res.json({ success: true, signed: true }));
     } else {
       res.json({ success: true, signed: false });
