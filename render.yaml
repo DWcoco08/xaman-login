@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: xaman-login
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: XUMM_API_KEY
+        sync: false
+      - key: XUMM_API_SECRET
+        sync: false
+      - key: SESSION_SECRET
+        sync: false
