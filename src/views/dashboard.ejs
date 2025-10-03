@@ -7,19 +7,183 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <div class="dashboard-card">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-brand">
             <h1>NFT Marketplace</h1>
-            <div class="user-info">
-                <h2>Wallet Connected</h2>
-                <div class="info-row">
-                    <label>XRP Account</label>
-                    <span class="account-address"><%= user.account %></span>
+        </div>
+        <div class="nav-menu">
+            <a href="#" class="nav-link active">Explore</a>
+            <a href="#" class="nav-link">My NFTs</a>
+            <a href="#" class="nav-link">Create</a>
+        </div>
+        <div class="nav-user">
+            <div class="wallet-info">
+                <span class="wallet-badge">Connected</span>
+                <span class="wallet-address"><%= user.account.substring(0, 6) %>...<%= user.account.substring(user.account.length - 4) %></span>
+            </div>
+            <a href="/logout" class="btn-logout">Disconnect</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="marketplace-hero">
+        <h2>Discover, Collect, and Sell NFTs</h2>
+        <p>Explore the world's largest NFT marketplace on XRP Ledger</p>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <h3>10,234</h3>
+                <p>Total NFTs</p>
+            </div>
+            <div class="stat-item">
+                <h3>2,500+</h3>
+                <p>Artists</p>
+            </div>
+            <div class="stat-item">
+                <h3>5.2M XRP</h3>
+                <p>Volume Traded</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="filter-tabs">
+            <button class="filter-tab active">All Items</button>
+            <button class="filter-tab">Art</button>
+            <button class="filter-tab">Music</button>
+            <button class="filter-tab">Gaming</button>
+            <button class="filter-tab">Photography</button>
+        </div>
+        <div class="filter-sort">
+            <select class="sort-select">
+                <option>Recently Listed</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+                <option>Most Popular</option>
+            </select>
+        </div>
+    </section>
+
+    <!-- NFT Grid -->
+    <section class="nft-grid">
+        <!-- NFT Card 1 -->
+        <div class="nft-card">
+            <div class="nft-image">
+                <img src="https://picsum.photos/400/400?random=1" alt="NFT">
+                <div class="nft-badge">Art</div>
+            </div>
+            <div class="nft-info">
+                <h3 class="nft-title">Cosmic Dreams #1</h3>
+                <p class="nft-creator">By @CryptoArtist</p>
+                <div class="nft-price">
+                    <div class="price-info">
+                        <span class="price-label">Price</span>
+                        <span class="price-value">250 XRP</span>
+                    </div>
+                    <button class="btn-buy">Buy Now</button>
                 </div>
             </div>
-            <a href="/logout" class="btn-secondary">Disconnect Wallet</a>
-    </div>
+        </div>
+
+        <!-- NFT Card 2 -->
+        <div class="nft-card">
+            <div class="nft-image">
+                <img src="https://picsum.photos/400/400?random=2" alt="NFT">
+                <div class="nft-badge">Music</div>
+            </div>
+            <div class="nft-info">
+                <h3 class="nft-title">Ethereal Beats</h3>
+                <p class="nft-creator">By @SoundWave</p>
+                <div class="nft-price">
+                    <div class="price-info">
+                        <span class="price-label">Price</span>
+                        <span class="price-value">150 XRP</span>
+                    </div>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- NFT Card 3 -->
+        <div class="nft-card">
+            <div class="nft-image">
+                <img src="https://picsum.photos/400/400?random=3" alt="NFT">
+                <div class="nft-badge">Gaming</div>
+            </div>
+            <div class="nft-info">
+                <h3 class="nft-title">Legendary Sword</h3>
+                <p class="nft-creator">By @GameDev</p>
+                <div class="nft-price">
+                    <div class="price-info">
+                        <span class="price-label">Price</span>
+                        <span class="price-value">500 XRP</span>
+                    </div>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- NFT Card 4 -->
+        <div class="nft-card">
+            <div class="nft-image">
+                <img src="https://picsum.photos/400/400?random=4" alt="NFT">
+                <div class="nft-badge">Photography</div>
+            </div>
+            <div class="nft-info">
+                <h3 class="nft-title">Mountain Sunrise</h3>
+                <p class="nft-creator">By @NatureShot</p>
+                <div class="nft-price">
+                    <div class="price-info">
+                        <span class="price-label">Price</span>
+                        <span class="price-value">180 XRP</span>
+                    </div>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- NFT Card 5 -->
+        <div class="nft-card">
+            <div class="nft-image">
+                <img src="https://picsum.photos/400/400?random=5" alt="NFT">
+                <div class="nft-badge">Art</div>
+            </div>
+            <div class="nft-info">
+                <h3 class="nft-title">Abstract Reality</h3>
+                <p class="nft-creator">By @ModernArt</p>
+                <div class="nft-price">
+                    <div class="price-info">
+                        <span class="price-label">Price</span>
+                        <span class="price-value">320 XRP</span>
+                    </div>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- NFT Card 6 -->
+        <div class="nft-card">
+            <div class="nft-image">
+                <img src="https://picsum.photos/400/400?random=6" alt="NFT">
+                <div class="nft-badge">Gaming</div>
+            </div>
+            <div class="nft-info">
+                <h3 class="nft-title">Dragon Armor</h3>
+                <p class="nft-creator">By @RPGMaster</p>
+                <div class="nft-price">
+                    <div class="price-info">
+                        <span class="price-label">Price</span>
+                        <span class="price-value">450 XRP</span>
+                    </div>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <script src="/js/toast.js"></script>
+    <script src="/js/marketplace.js"></script>
     <script>
         toast.success('Welcome to NFT Marketplace!');
     </script>
