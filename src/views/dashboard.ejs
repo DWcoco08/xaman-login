@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFT Marketplace - Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="dashboard-card">
+            <h1>NFT Marketplace</h1>
+            <div class="user-info">
+                <h2>Wallet Connected</h2>
+                <div class="info-row">
+                    <label>XRP Account</label>
+                    <span class="account-address"><%= user.account %></span>
+                </div>
+            </div>
+            <a href="/logout" class="btn-secondary">Disconnect Wallet</a>
+        </div>
+    </div>
+
+    <script src="/js/toast.js"></script>
+    <script>
+        toast.success('Welcome to NFT Marketplace!');
+    </script>
+</body>
+</html>
