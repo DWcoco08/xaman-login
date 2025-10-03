@@ -5,9 +5,7 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
-    "dev": "nodemon src/server.js",
-    "build": "echo 'Build complete - ready for deployment'",
-    "deploy": "vercel --prod"
+    "dev": "nodemon src/server.js"
   },
   "keywords": ["nft", "marketplace", "xaman", "xrpl"],
   "author": "",
