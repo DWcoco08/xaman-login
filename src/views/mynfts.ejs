@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My NFTs - NFT Marketplace</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <h1>NFT Marketplace</h1>
+        </div>
+        <div class="nav-menu">
+            <a href="/dashboard" class="nav-link">Explore</a>
+            <a href="/mynfts" class="nav-link active">My NFTs</a>
+            <a href="/create" class="nav-link">Create</a>
+        </div>
+        <div class="nav-user">
+            <div class="wallet-info">
+                <span class="wallet-badge">Connected</span>
+                <span class="wallet-address"><%= user.account.substring(0, 6) %>...<%= user.account.substring(user.account.length - 4) %></span>
+            </div>
+            <a href="/logout" class="btn-logout">Disconnect</a>
+        </div>
+    </nav>
+
+    <!-- My NFTs Header -->
+    <section class="marketplace-hero">
+        <h2>My NFT Collection</h2>
+        <p>Manage and view all your owned NFTs</p>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <h3>12</h3>
+                <p>Owned NFTs</p>
+            </div>
+            <div class="stat-item">
+                <h3>3.5K XRP</h3>
+                <p>Total Value</p>
+            </div>
+            <div class="stat-item">
+                <h3>5</h3>
+                <p>Collections</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="filter-tabs">
+            <button class="filter-tab active">All</button>
+            <button class="filter-tab">Art</button>
+            <button class="filter-tab">Music</button>
+            <button class="filter-tab">Gaming</button>
+            <button class="filter-tab">Photography</button>
+        </div>
+        <div class="filter-sort">
+            <select class="sort-select">
+                <option>Recently Acquired</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+                <option>Alphabetical</option>
+            </select>
+        </div>
+    </section>
+
+    <!-- My NFT Grid -->
+    <section class="nft-grid">
+        <!-- Owned NFT Card 1 -->
+        <div class="nft-card owned-nft">
+            <div class="nft-image">
+                <img src="https://picsum.photos/400/400?random=10" alt="NFT">
+                <div class="nft-badge">Art</div>
+                <div class="owned-badge">Owned</div>
+            </div>
+            <div class="nft-info">
+                <h3 class="nft-title">Digital Sunset #42</h3>
+                <p class="nft-creator">By @PixelArtist</p>
+                <div class="nft-price">
+                    <div class="price-info">
+                        <span class="price-label">Value</span>
+                        <span class="price-value">350 XRP</span>
+                    </div>
+                    <button class="btn-sell">List for Sale</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Owned NFT Card 2 -->
+        <div class="nft-card owned-nft">
+            <div class="nft-image">
+                <img src="https://picsum.photos/400/400?random=11" alt="NFT">
+                <div class="nft-badge">Music</div>
+                <div class="owned-badge">Owned</div>
+            </div>
+            <div class="nft-info">
+                <h3 class="nft-title">Synth Wave Track</h3>
+                <p class="nft-creator">By @AudioMaster</p>
+                <div class="nft-price">
+                    <div class="price-info">
+                        <span class="price-label">Value</span>
+                        <span class="price-value">200 XRP</span>
+                    </div>
+                    <button class="btn-sell">List for Sale</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Owned NFT Card 3 -->
+        <div class="nft-card owned-nft">
+            <div class="nft-image">
+                <img src="https://picsum.photos/400/400?random=12" alt="NFT">
+                <div class="nft-badge">Gaming</div>
+                <div class="owned-badge">Owned</div>
+            </div>
+            <div class="nft-info">
+                <h3 class="nft-title">Epic Shield</h3>
+                <p class="nft-creator">By @GameForge</p>
+                <div class="nft-price">
+                    <div class="price-info">
+                        <span class="price-label">Value</span>
+                        <span class="price-value">600 XRP</span>
+                    </div>
+                    <button class="btn-sell">List for Sale</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Owned NFT Card 4 -->
+        <div class="nft-card owned-nft">
+            <div class="nft-image">
+                <img src="https://picsum.photos/400/400?random=13" alt="NFT">
+                <div class="nft-badge">Photography</div>
+                <div class="owned-badge">Owned</div>
+            </div>
+            <div class="nft-info">
+                <h3 class="nft-title">Ocean Depths</h3>
+                <p class="nft-creator">By @SeaPhotog</p>
+                <div class="nft-price">
+                    <div class="price-info">
+                        <span class="price-label">Value</span>
+                        <span class="price-value">280 XRP</span>
+                    </div>
+                    <button class="btn-sell">List for Sale</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Owned NFT Card 5 -->
+        <div class="nft-card owned-nft">
+            <div class="nft-image">
+                <img src="https://picsum.photos/400/400?random=14" alt="NFT">
+                <div class="nft-badge">Art</div>
+                <div class="owned-badge">Owned</div>
+            </div>
+            <div class="nft-info">
+                <h3 class="nft-title">Neon Dreams</h3>
+                <p class="nft-creator">By @CyberArt</p>
+                <div class="nft-price">
+                    <div class="price-info">
+                        <span class="price-label">Value</span>
+                        <span class="price-value">420 XRP</span>
+                    </div>
+                    <button class="btn-sell">List for Sale</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Owned NFT Card 6 -->
+        <div class="nft-card owned-nft">
+            <div class="nft-image">
+                <img src="https://picsum.photos/400/400?random=15" alt="NFT">
+                <div class="nft-badge">Gaming</div>
+                <div class="owned-badge">Owned</div>
+            </div>
+            <div class="nft-info">
+                <h3 class="nft-title">Magic Potion</h3>
+                <p class="nft-creator">By @AlchemyDev</p>
+                <div class="nft-price">
+                    <div class="price-info">
+                        <span class="price-label">Value</span>
+                        <span class="price-value">150 XRP</span>
+                    </div>
+                    <button class="btn-sell">List for Sale</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="/js/toast.js"></script>
+    <script src="/js/mynfts.js"></script>
+</body>
+</html>
